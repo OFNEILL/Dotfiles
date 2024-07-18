@@ -1,4 +1,5 @@
 local M = {}
+
 M.headers = {
 	{
 		[[⠀⠀⠀⠀⠀⠀⣀⣤⣶⣶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀]],
@@ -118,4 +119,5 @@ M.headers = {
 	},
 }
 
+math.randomseed(os.time())
 return M.headers[math.random(#M.headers)]
