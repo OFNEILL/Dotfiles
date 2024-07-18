@@ -118,4 +118,4 @@ M.headers = {
 	},
 }
 
-return M
+return M.headers[math.random(#M.headers)]

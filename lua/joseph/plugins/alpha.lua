@@ -7,15 +7,9 @@ return {
 		local alpha = require("alpha")
 		local dashboard = require("alpha.themes.dashboard")
 		local fortune = require("alpha.fortune")
-		local headers = require("ducks").headers
+		local header = require("headers")
 
-		math.randomseed(os.time())
-		local function get_random_header()
-			return headers[math.random(#headers)]
-		end
-
-		dashboard.section.header.val = get_random_header()
-
+		dashboard.section.header.val = header
 		dashboard.section.buttons.val = {
 			dashboard.button("e", "  New File", ":ene <BAR> startinsert <CR>"),
 			dashboard.button("f", "󰈞  Find file", ":Telescope find_files<CR>"),
@@ -26,8 +20,12 @@ return {
 		}
 		dashboard.section.footer.val = fortune()
 
+		-- Send config to alpha
 		alpha.setup(dashboard.opts)
 
-		vim.cmd([[autocmd FileType alpha setlocal nofoldenable]])
+		-- Disable folding on alpha buffer
+		vim.cmd([[
+		  autocmd FileType alpha setlocal nofoldenable
+		]])
 	end,
 }
