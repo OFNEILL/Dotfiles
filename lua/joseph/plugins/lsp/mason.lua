@@ -40,7 +40,7 @@ return {
 				"emmet_ls",
 				"prismals",
 				"pylsp",
-				"reorder-python-imports",
+				"omnisharp",
 			},
 		})
 

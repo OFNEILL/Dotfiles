@@ -31,6 +31,7 @@ return {
 				"dockerfile",
 				"gitignore",
 				"query",
+				"c_sharp",
 			},
 			auto_install = true,
 			highlight = {
