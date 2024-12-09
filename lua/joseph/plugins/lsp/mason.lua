@@ -40,7 +40,8 @@ return {
 				"emmet_ls",
 				"prismals",
 				"pylsp",
-				"reorder-python-imports",
+				"gopls",
+				"omnisharp",
 			},
 		})
 
@@ -52,6 +53,7 @@ return {
 				"black", -- python formatter
 				"pylint",
 				"eslint_d",
+				"delve", -- go debugger
 			},
 		})
 	end,

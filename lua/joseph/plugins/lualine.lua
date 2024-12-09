@@ -2,14 +2,21 @@ return {
 	-- Set lualine as statusline
 	"nvim-lualine/lualine.nvim",
 	-- See `:help lualine.txt`
+
+	dependency = {
+		"kyazdani42/nvim-web-devicons",
+		"EdenEast/nightfox.nvim",
+	},
 	config = function()
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status")
+		-- local lualineTheme = vim.cmd.colorscheme("nightfox.nvim")
+		--
 
 		lualine.setup({
 			options = {
 				icons_enabled = false,
-				theme = "spaceduck",
+				theme = "nightfox",
 				component_separators = "|",
 				section_separators = "",
 			},

@@ -19,6 +19,7 @@ return {
 		local builtin = require("telescope.builtin")
 
 		local keymap = vim.keymap -- for conciseness
+		local configs = require("lspconfig/configs")
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -113,6 +114,20 @@ return {
 				lspconfig["graphql"].setup({
 					capabilities = capabilities,
 					filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+				})
+			end,
+			["gopls"] = function()
+				-- configure graphql language server
+				lspconfig["gopls"].setup({
+					capabilities = capabilities,
+					filetypes = { "go", "go.mod" },
+				})
+			end,
+			["omnisharp"] = function()
+				-- configure graphql language server
+				lspconfig["omnisharp"].setup({
+					capabilities = capabilities,
+					filetypes = { "cs", "csproj" },
 				})
 			end,
 			["emmet_ls"] = function()

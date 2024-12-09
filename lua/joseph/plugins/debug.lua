@@ -5,6 +5,12 @@ return {
 		"nvim-neotest/nvim-nio",
 		"williamboman/mason.nvim",
 		"jay-babu/mason-nvim-dap.nvim",
+		{
+			"leoluz/nvim-dap-go",
+			config = function()
+				require("dap-go").setup()
+			end,
+		},
 	},
 	config = function()
 		local dap = require("dap")
@@ -14,6 +20,10 @@ return {
 		mason_nvim_dap.setup({
 			automatic_installation = true,
 			handlers = {},
+			ensure_installed = {
+				"delve",
+				"netcoredbg",
+			},
 		})
 
 		local keymap = vim.keymap

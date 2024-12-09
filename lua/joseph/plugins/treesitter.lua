@@ -31,6 +31,7 @@ return {
 				"dockerfile",
 				"gitignore",
 				"query",
+				"go",
 			},
 			auto_install = true,
 			highlight = {
