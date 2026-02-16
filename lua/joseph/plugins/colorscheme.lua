@@ -7,10 +7,10 @@
 -- 	end,
 -- }
 return {
-	"FelipeIzolan/lipoide.nvim",
+	"NTBBloodbath/sweetie.nvim",
 	lazy = false,
 	priority = 1000,
 	config = function()
-		vim.cmd.colorscheme("lipoide")
+		vim.cmd.colorscheme("sweetie")
 	end,
 }
