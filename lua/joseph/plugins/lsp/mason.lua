@@ -40,8 +40,9 @@ return {
 				"emmet_ls",
 				"prismals",
 				"pylsp",
-				"gopls",
 				"omnisharp",
+        "java-debug-adapter",
+        "java-test"
 			},
 		})
 
@@ -53,7 +54,7 @@ return {
 				"black", -- python formatter
 				"pylint",
 				"eslint_d",
-				"delve", -- go debugger
+				-- "delve", -- go debugger
 			},
 		})
 	end,
