@@ -30,7 +30,7 @@ return {
 			-- list of servers for mason to install
 			automatic_installation = true,
 			ensure_installed = {
-				"tsserver",
+				"ts_ls",
 				"html",
 				"cssls",
 				"tailwindcss",
@@ -41,8 +41,7 @@ return {
 				"prismals",
 				"pylsp",
 				"omnisharp",
-        "java-debug-adapter",
-        "java-test"
+				"java-debug-adapter",
 			},
 		})
 

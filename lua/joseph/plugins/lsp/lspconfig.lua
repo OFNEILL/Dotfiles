@@ -6,12 +6,20 @@ return {
 	},
 
 	{
+		"nvim-java/nvim-java",
+		ft = "java",
+	},
+
+	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
+
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
+			"nvim-java/nvim-java",
 		},
+
 		opts = function(_, opts)
 			local builtin = require("telescope.builtin")
 
@@ -31,15 +39,20 @@ return {
 					map("n", "gd", builtin.lsp_definitions, "[G]oto LSP [D]efinition")
 					map("n", "gi", builtin.lsp_implementations, "[G]oto [I]mplementation")
 					map("n", "gt", builtin.lsp_type_definitions, "Type [D]efinition")
+
 					map("n", "<leader>ds", builtin.lsp_document_symbols, "[D]ocument [S]ymbols")
 					map("n", "<leader>dw", builtin.lsp_dynamic_workspace_symbols, "[D]ynamic [W]orkspace Symbols")
-					map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "See available code actions")
-					map("n", "<leader>rn", vim.lsp.buf.rename, "Smart rename")
-					map("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", "Show buffer diagnostics")
-					map("n", "<leader>d", vim.diagnostic.open_float, "Show line diagnostics")
-					map("n", "[d", vim.diagnostic.goto_prev, "Go to previous diagnostic")
-					map("n", "]d", vim.diagnostic.goto_next, "Go to next diagnostic")
-					map("n", "S", vim.lsp.buf.hover, "Show documentation")
+
+					map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code Action")
+					map("n", "<leader>rn", vim.lsp.buf.rename, "Rename")
+
+					map("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", "Buffer Diagnostics")
+					map("n", "<leader>d", vim.diagnostic.open_float, "Line Diagnostics")
+					map("n", "[d", vim.diagnostic.goto_prev, "Previous Diagnostic")
+					map("n", "]d", vim.diagnostic.goto_next, "Next Diagnostic")
+
+					map("n", "K", vim.lsp.buf.hover, "Hover Documentation")
+
 					map("n", "<leader>rs", "<cmd>LspRestart<CR>", "Restart LSP")
 				end,
 			})
@@ -58,13 +71,35 @@ return {
 			opts.capabilities = require("cmp_nvim_lsp").default_capabilities(opts.capabilities)
 
 			opts.servers = vim.tbl_deep_extend("force", opts.servers or {}, {
+				lua_ls = {
+					settings = {
+						Lua = {
+							completion = {
+								callSnippet = "Replace",
+							},
+						},
+					},
+				},
+
 				svelte = {},
+
 				graphql = {
-					filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+					filetypes = {
+						"graphql",
+						"gql",
+						"svelte",
+						"typescriptreact",
+						"javascriptreact",
+					},
 				},
+
 				omnisharp = {
-					filetypes = { "cs", "csproj" },
+					filetypes = {
+						"cs",
+						"csproj",
+					},
 				},
+
 				emmet_ls = {
 					filetypes = {
 						"html",
@@ -77,11 +112,18 @@ return {
 						"svelte",
 					},
 				},
-				lua_ls = {
+
+				jdtls = {
 					settings = {
-						Lua = {
-							completion = {
-								callSnippet = "Replace",
+						java = {
+							signatureHelp = {
+								enabled = true,
+							},
+							import = {
+								enabled = true,
+							},
+							rename = {
+								enabled = true,
 							},
 						},
 					},
@@ -102,6 +144,10 @@ return {
 						end,
 					})
 				end
+			end
+
+			opts.setup.jdtls = function()
+				require("java").setup()
 			end
 		end,
 	},
