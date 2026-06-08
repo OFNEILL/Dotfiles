@@ -55,13 +55,13 @@ return {
 			}),
 
 			-- configure lspkind for vs-code like pictograms in completion menu
-			formatting = {
-				format = lspkind.cmp_format({
-					maxwidth = 50,
-					ellipsis_char = "...",
-					before = require("tailwind-tools.cmp").lspkind_format,
-				}),
-			},
+			-- formatting = {
+			-- 	format = lspkind.cmp_format({
+			-- 		maxwidth = 50,
+			-- 		ellipsis_char = "...",
+			-- 		before = require("tailwind-tools.cmp").lspkind_format,
+			-- 	}),
+			-- },
 		})
 	end,
 }
