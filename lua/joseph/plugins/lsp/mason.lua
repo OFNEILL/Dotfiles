@@ -30,7 +30,7 @@ return {
 			-- list of servers for mason to install
 			automatic_installation = true,
 			ensure_installed = {
-				"tsserver",
+				"ts_ls",
 				"html",
 				"cssls",
 				"tailwindcss",
@@ -40,8 +40,8 @@ return {
 				"emmet_ls",
 				"prismals",
 				"pylsp",
-				"gopls",
 				"omnisharp",
+				"java-debug-adapter",
 			},
 		})
 
@@ -53,7 +53,7 @@ return {
 				"black", -- python formatter
 				"pylint",
 				"eslint_d",
-				"delve", -- go debugger
+				-- "delve", -- go debugger
 			},
 		})
 	end,
