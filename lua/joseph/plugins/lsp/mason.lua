@@ -24,6 +24,9 @@ return {
 					server_uninstalled = "✗",
 				},
 			},
+			registries = {
+				"github:mason-org/mason-registry",
+			},
 		})
 
 		mason_lspconfig.setup({
@@ -39,9 +42,11 @@ return {
 				"graphql",
 				"emmet_ls",
 				"prismals",
-				"pylsp",
+				"pyright",
+				"jdtls",
+				"angularls",
+				"csharp_ls",
 				"omnisharp",
-				"java-debug-adapter",
 			},
 		})
 
@@ -52,8 +57,9 @@ return {
 				"isort", -- python formatter
 				"black", -- python formatter
 				"pylint",
+				"java-debug-adapter",
+				"java-test",
 				"eslint_d",
-				-- "delve", -- go debugger
 			},
 		})
 	end,
