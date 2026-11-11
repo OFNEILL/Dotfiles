@@ -146,9 +146,20 @@ return {
 				end
 			end
 
-			opts.setup.jdtls = function()
-				require("java").setup()
-			end
-		end,
-	},
+					-- Configure jdtls server
+					vim.lsp.config("jdtls", {
+						capabilities = capabilities,
+					})
+					vim.lsp.enable({ "jdtls" })
+				end,
+				["r_language_server"] = function()
+					vim.lsp.config("r_language_server", {
+						capabilities = capabilities,
+					})
+
+					vim.lsp.config.enable({ "r_language_server" })
+				end,
+			},
+		})
+	end,
 }
