@@ -29,6 +29,8 @@ return {
 			"gitignore",
 			"query",
 			"java",
+			"r",
+			"rnoweb",
 		}
 
 		vim.defer_fn(function()
